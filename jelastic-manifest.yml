@@ -5,5 +5,13 @@ name: React Frontend
 onInstall:
   - cmd [npm ci --no-audit --no-fund]
   - cmd [CI=false npm run build]
+  - cmd [mkdir -p /var/www/webroot/ROOT]
+  - cmd [rm -rf /var/www/webroot/ROOT/*]
+  - cmd [cp -r ./build/* /var/www/webroot/ROOT/]
+
+onUpdate:
+  - cmd [npm ci --no-audit --no-fund]
+  - cmd [CI=false npm run build]
+  - cmd [mkdir -p /var/www/webroot/ROOT]
   - cmd [rm -rf /var/www/webroot/ROOT/*]
   - cmd [cp -r ./build/* /var/www/webroot/ROOT/]
