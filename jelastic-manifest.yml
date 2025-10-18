@@ -3,7 +3,7 @@ version: 1.0
 id: react-frontend
 name: React Frontend
 onInstall:
-  - cmd [npm ci]
-  - cmd [npm run build]
+  - cmd [npm ci --no-audit --no-fund]
+  - cmd [CI=false npm run build]
   - cmd [rm -rf /var/www/webroot/ROOT/*]
-  - cmd [cp -r build/* /var/www/webroot/ROOT/]
+  - cmd [cp -r ./build/* /var/www/webroot/ROOT/]
